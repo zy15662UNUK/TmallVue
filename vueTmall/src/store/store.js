@@ -49,10 +49,13 @@ export const store = new Vuex.Store({
           selectedNum ++;
         }
       }
-      if(selectedNum===state.cart.length){//if selectAll, switch the selectAll box to be checked
+      if((selectedNum===state.cart.length)&&(state.cart.length!==0)){//if selectAll, switch the selectAll box to be checked, turn button to red
         $(".selectAllItem").attr('src', "http://how2j.cn/tmall/img/site/cartSelected.png");
         $(".createOrderButton").addClass('buttonPaymentReady');//style the button according to selection state
-      }else{//if not selectAll, switch the selectAll box to be unchecked
+      }else if((selectedNum<state.cart.length)&&(selectedNum>0)) {
+        $(".selectAllItem").attr('src', "http://how2j.cn/tmall/img/site/cartNotSelected.png");
+        $(".createOrderButton").addClass('buttonPaymentReady');
+      }else{//if not selectAll, switch the selectAll box to be unchecked,turn button to grey
         $(".selectAllItem").attr('src', "http://how2j.cn/tmall/img/site/cartNotSelected.png");
         $(".createOrderButton").removeClass('buttonPaymentReady');
       }

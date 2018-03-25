@@ -25,7 +25,7 @@
             <tbody>
                   <tr class="cartProductItemTR" oiid="936" v-for="(elem,index) in getCart" :key="elem.name">
                       <td>
-                          <img :src="elem.select" class="cartProductItemIfSelected" oiid="936" selectit="false">
+                          <img :src="elem.select" class="cartProductItemIfSelected" oiid="936" selectit="false" @click="selectEach(index)">
                           <img width="40px" :src="elem.src" class="cartProductImg">
                       </td>
                       <td>
@@ -53,7 +53,7 @@
                           <span pid="365" oiid="936" class="cartProductItemSmallSumPrice" value="5306">￥{{elem.promotionPrice}}</span>
                       </td>
                       <td>
-                          <a href="#nowhere" oiid="936" class="deleteOrderItem">删除</a>
+                          <a href="#nowhere" oiid="936" class="deleteOrderItem" @click="deleteItem(index)">删除</a>
                       </td>
                   </tr>
           </tbody>
@@ -116,18 +116,29 @@ export default {
           // once change product num, update the overAllPrice
         }
       },
+      handleEach(index){//manipution for each item in cart, which can be used for both funs below
+        this.$store.state.cart[index].check = !this.$store.state.cart[index].check;
+        if(this.$store.state.cart[index].check){//change selection state for each item
+          this.$store.commit("modifyCart",{index:index,value:"http://how2j.cn/tmall/img/site/cartSelected.png",prop:"select"});//change checkbox img
+          this.selectedProductNum ++;
+        }else{
+          this.$store.commit("modifyCart",{index:index,value:"http://how2j.cn/tmall/img/site/cartNotSelected.png",prop:"select"});
+        }
+      },
       selectAll(){
         this.selectedProductNum = 0;
         for(var i=0;i<this.$store.state.cart.length;i++){
-          this.$store.commit("modifyCart",{index:i,value:!this.$store.state.cart[i].check,prop:"check"});//change checkbox img
-          if(this.$store.state.cart[i].check){//change selection state for each item
-            this.$store.commit("modifyCart",{index:i,value:"http://how2j.cn/tmall/img/site/cartSelected.png",prop:"select"});
-            this.selectedProductNum += 1;
-          }else{
-            this.$store.commit("modifyCart",{index:i,value:"http://how2j.cn/tmall/img/site/cartNotSelected.png",prop:"select"});
-          }
+          this.handleEach(i);
         }
-        this.$store.commit("overAllPrice");//update the overAllPrice based on each item's selection state
+        this.$store.commit("overAllPrice");//update the overAllPrice&&selectAll based on each item's selection state
+      },
+      selectEach(index){
+        this.handleEach(index);
+        this.$store.commit("overAllPrice");
+      },
+      deleteItem(index){
+        this.$store.state.cart.splice(index,1);
+        this.$store.commit("overAllPrice");
       }
   },
 
