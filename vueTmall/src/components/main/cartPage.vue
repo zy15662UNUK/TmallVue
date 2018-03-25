@@ -23,7 +23,7 @@
               </tr>
             </thead>
             <tbody>
-                  <tr class="cartProductItemTR" oiid="936" v-for="(elem,index) in getCart">
+                  <tr class="cartProductItemTR" oiid="936" v-for="(elem,index) in getCart" :key="elem.name">
                       <td>
                           <img :src="elem.select" class="cartProductItemIfSelected" oiid="936" selectit="false">
                           <img width="40px" :src="elem.src" class="cartProductImg">
@@ -117,13 +117,6 @@ export default {
         }
       },
       selectAll(){
-        this.selectAllCheckBox=!this.selectAllCheckBox;//selectAll or not
-        if(this.selectAllCheckBox){//if selectAll, switch the selectAll box to be checked
-          $(".selectAllItem").attr('src', "http://how2j.cn/tmall/img/site/cartSelected.png");
-        }else{//if selectNone, switch the selectAll box to be unchecked
-          $(".selectAllItem").attr('src', "http://how2j.cn/tmall/img/site/cartNotSelected.png");
-        }
-        $(".createOrderButton").toggleClass('buttonPaymentReady');//style the button according to selection state
         this.selectedProductNum = 0;
         for(var i=0;i<this.$store.state.cart.length;i++){
           this.$store.commit("modifyCart",{index:i,value:!this.$store.state.cart[i].check,prop:"check"});//change checkbox img

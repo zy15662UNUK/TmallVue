@@ -42,10 +42,19 @@ export const store = new Vuex.Store({
     overAllPrice: function(state){
       // loop through the cart list, if product is checked, add to the overAllPrice
       state.overAllPrice=0;
+      var selectedNum = 0;//count the num of selected items
       for(var i=0;i<state.cart.length;i++){
         if(state.cart[i].check){
           state.overAllPrice+=state.cart[i].num * parseFloat(state.cart[i].promotionPrice);
+          selectedNum ++;
         }
+      }
+      if(selectedNum===state.cart.length){//if selectAll, switch the selectAll box to be checked
+        $(".selectAllItem").attr('src', "http://how2j.cn/tmall/img/site/cartSelected.png");
+        $(".createOrderButton").addClass('buttonPaymentReady');//style the button according to selection state
+      }else{//if not selectAll, switch the selectAll box to be unchecked
+        $(".selectAllItem").attr('src', "http://how2j.cn/tmall/img/site/cartNotSelected.png");
+        $(".createOrderButton").removeClass('buttonPaymentReady');
       }
     }
   }
