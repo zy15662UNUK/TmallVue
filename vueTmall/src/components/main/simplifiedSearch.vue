@@ -1,27 +1,28 @@
 <template>
-  <div class="container">
-          <span class="gif">
-            <a href="#nowhere">
-              <img src="http://how2j.cn/tmall/img/site/simpleLogo.png" class="simpleLogo" id="simpleLogo">
-            </a>
-          </span>
-          <div class="searchDiv float-right">
-            <div class="searchBox">
-              <input type="text" placeholder="平衡车 原汁机 " name="keyword">
-              <button class="searchButton" type="submit">搜天猫</button>
-            </div>
-              <div class="searchBelow">
-                  <span> <a href="#nowhere"> 箱 </a> <span>|</span>
-                  </span>
-                  <span> <a href="#nowhere">空调 </a> <span>|</span>
-                  </span>
-                  <span> <a href="#nowhere">女表 </a> <span>|</span>
-                </span> <span> <a href="#nowhere">男装 </a></span>
+  <div style="margin-bottom:20px">
+    <div class="container">
+            <span class="gif">
+              <a href="#nowhere">
+                <img src="http://how2j.cn/tmall/img/site/simpleLogo.png" class="simpleLogo" id="simpleLogo">
+              </a>
+            </span>
+            <div class="searchDiv float-right">
+              <div class="searchBox">
+                <input type="text" placeholder="平衡车 原汁机 " name="keyword">
+                <button class="searchButton" type="submit">搜天猫</button>
               </div>
-          </div>
-      </div>
-
-      <div style="height:50px"></div>
+                <div class="searchBelow">
+                    <span> <a href="#nowhere"> 箱 </a> <span>|</span>
+                    </span>
+                    <span> <a href="#nowhere">空调 </a> <span>|</span>
+                    </span>
+                    <span> <a href="#nowhere">女表 </a> <span>|</span>
+                  </span> <span> <a href="#nowhere">男装 </a></span>
+                </div>
+            </div>
+        </div>
+        <!-- <div style="height:50px;width:100%"></div> -->
+  </div>
 </template>
 <script>
 export default {
@@ -86,7 +87,7 @@ color: #999;
   /* 去掉输入框轮廓，否则获取焦点的时候会发生颜色变化 */
 }
 .searchDiv{
-  margin: 50px auto;
+  margin-top: 30px;
   display: inline-block;
 }
 .searchDiv span{
