@@ -33,7 +33,7 @@
                         </td>
                         <td>
                             <div class="cartProductLinkOutDiv">
-                                <a class="cartProductLink" href="#nowhere">{{elem.name}}</a>
+                                <a class="cartProductLink"><router-link :to="elem.routerLink">{{elem.name}}</router-link></a>
                                 <div class="cartProductLinkInnerDiv">
                                     <img title="支持信用卡支付" src="http://how2j.cn/tmall/img/site/creditcard.png">
                                     <img title="消费者保障服务,承诺7天退货" src="http://how2j.cn/tmall/img/site/7day.png">

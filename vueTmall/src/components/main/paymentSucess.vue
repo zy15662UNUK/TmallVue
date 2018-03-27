@@ -1,5 +1,6 @@
 <template>
   <div id="">
+    <searchBar></searchBar>
     <div class="payedDiv container">
       <div class="payedTextDiv">
         <img src="http://how2j.cn/tmall/img/site/paySuccess.png">
@@ -27,8 +28,12 @@
   </div>
 </template>
 <script>
+import simplifiedSearch from "./simplifiedSearch.vue"
 import {mapGetters} from "vuex";
 export default {
+  components: {
+    searchBar: simplifiedSearch
+  },
   computed: {
           ...mapGetters([
           "overAllPrice",

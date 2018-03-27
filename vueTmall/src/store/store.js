@@ -16,7 +16,8 @@ export const store = new Vuex.Store({
         promotionPrice: "5306.0",
         select: "http://how2j.cn/tmall/img/site/cartNotSelected.png",
         check: false,//true if this is selected
-        num: 1
+        num: 1,
+        routerLink: "/"
       },
       {
         name: "阔腿裤三件套装女夏装2016新款大码雪纺时尚休闲气质棉麻九分裤潮",
@@ -25,7 +26,8 @@ export const store = new Vuex.Store({
         promotionPrice: "152.75",
         select: "http://how2j.cn/tmall/img/site/cartNotSelected.png",
         check: false,
-        num: 1
+        num: 1,
+        routerLink: "/productPage"
       },
     ],
     paymentCart: [],

@@ -116,8 +116,12 @@
   </div>
 </template>
 <script>
+import simplifiedSearch from "./simplifiedSearch.vue"
 import {mapGetters} from "vuex";
 export default {
+  components: {
+    searchBar: simplifiedSearch
+  },
   computed: {
           ...mapGetters([
           "paymentCart",

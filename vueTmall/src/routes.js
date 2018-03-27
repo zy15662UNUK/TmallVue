@@ -4,9 +4,11 @@ import aliPayPage from "./components/main/alipayPage.vue";
 import paymentSuccess from "./components/main/paymentSucess.vue";
 import productReceive from "./components/main/productReceive.vue";
 import receiveSuccess from "./components/main/receiveSuccess.vue";
+import productPage from "./components/main/productPage.vue";
 
 // import components
 export const routes = [
+  {path: "/productPage",component: productPage},
   {path: "/",component: cartPage},
   {path: "/paymentPage",component: paymentPage},
   {path: "/aliPayPage",component: aliPayPage},

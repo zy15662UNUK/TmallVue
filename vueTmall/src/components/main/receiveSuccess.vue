@@ -1,5 +1,6 @@
 <template>
   <div id="">
+    <searchBar></searchBar>
     <div class="container">
       <div class="orderFinishDiv">
           <div class="orderFinishTextDiv">
@@ -11,8 +12,11 @@
   </div>
 </template>
 <script>
+import simplifiedSearch from "./simplifiedSearch.vue"
 export default {
-
+  components: {
+    searchBar: simplifiedSearch
+  },
 }
 </script>
 <style scoped>
