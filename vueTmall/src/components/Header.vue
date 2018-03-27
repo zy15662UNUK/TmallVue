@@ -11,7 +11,7 @@
         </div>
         <div class="right text-right">
            <span class="nav-six"><a href="#">我的订单</a></span>
-           <span class="nav-seven"><a href="#"><i class="fas fa-shopping-cart"></i> 购物车{{cartNum}}件</a></span>
+           <span class="nav-seven"><router-link to="/"><a><i class="fas fa-shopping-cart"></i> 购物车{{cartNum}}件</a></router-link></span>
         </div>
       </div>
     </nav>
