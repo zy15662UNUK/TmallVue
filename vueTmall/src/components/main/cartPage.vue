@@ -104,18 +104,17 @@ export default {
       toPayment(){
         this.$store.commit("proceedToPay");
       },
-      increase(elem,index){
+      increase(elem,index){//增加数量，更新购物车，更新总价
         var value = elem + 1;
         var payload = {
           index: index,
           prop: "num",
           value: value
         };
-        console.log(payload);
         this.$store.commit("modifyCart",payload);
         this.$store.commit("overAllPrice");
       },
-      decrease(elem,index){
+      decrease(elem,index){//减少数量，更新购物车，更新总价
         if(elem>1){
           var value = elem-1;
           var payload = {
@@ -123,13 +122,13 @@ export default {
             prop: "num",
             value: value
           };
-          console.log(payload)
           this.$store.commit("modifyCart",payload);
           this.$store.commit("overAllPrice");
           // once change product num, update the overAllPrice
         }
       },
-      handleEach(index){//manipution for each item in cart, which can be used for both funs below
+      handleEach(index){//manipution for each item in cart, which can be used for both funcs below
+        // 更改选择状态，更改选择框
         this.$store.state.cart[index].check = !this.$store.state.cart[index].check;
         if(this.$store.state.cart[index].check){//change selection state for each item
           this.$store.commit("modifyCart",{index:index,value:"http://how2j.cn/tmall/img/site/cartSelected.png",prop:"select"});//change checkbox img

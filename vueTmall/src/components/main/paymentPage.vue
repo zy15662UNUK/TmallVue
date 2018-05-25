@@ -137,7 +137,7 @@ export default {
     };
   },
   methods: {
-    toAlipay(){
+    toAlipay(){//采集表单中地址并发送给vuex储存
       var payload={
         addressdetails: this.address,
         zipcode: this.zipcode,
